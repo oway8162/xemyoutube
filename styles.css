@@ -1,0 +1,48 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  width: 100vw;
+  height: 100vh;
+}
+.link {
+  width: 400px;
+  height: 30px;
+  margin-left: 30px;
+  margin-top: -20px;
+  border: 1px solid #dddddd;
+  background: #f9f9f9;
+  padding: 6px 10px;
+  border-radius: 6px;
+  transition: all 0.2s;
+}
+
+.link:focus-visible {
+  outline: unset;
+}
+.link:focus,
+.link:active {
+  border: 1px solid #4d9ceb;
+}
+
+.btnButton {
+  background-color: aquamarine;
+  width: 100px;
+  height: 30px;
+  border-radius: 6px;
+  border: unset;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.btnButton:hover {
+  background-color: aqua;
+}
+.formLink {
+  position: absolute;
+
+  bottom: 20px;
+}
