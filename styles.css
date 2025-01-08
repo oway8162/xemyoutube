@@ -107,8 +107,8 @@ body {
   background-color: #4d9ceb;
 }
 .chatBody {
-  width: 250px;
-  height: 220px;
+  width: 100%;
+  height: calc(100% - 80px);
   background-color: #eee;
   padding: 10px;
   overflow-y: scroll;
@@ -136,7 +136,7 @@ body {
   padding: 0 10px;
   position: relative;
   input {
-    width: 190px;
+    width: calc(100% - 60px);
     height: 30px;
     border: 1px solid #dddddd;
     background: #f9f9f9;
@@ -152,5 +152,21 @@ body {
     svg {
       fill: #4d9ceb;
     }
+  }
+}
+
+@media (max-width: 480px) {
+  .formLink,
+  .btnChat,
+  .object {
+    display: none;
+  }
+  .popchat {
+    width: 100vw;
+    height: 100vh;
+    transform: unset;
+    right: unset;
+    bottom: 0;
+    border-radius: 0;
   }
 }
