@@ -18,6 +18,75 @@
       />
       <button class="btnButton" type="button">Nhập link</button>
     </div>
-    <script src="script.js"></script>
+    <div class="btnChat">
+      <svg
+        height="30px"
+        width="30px"
+        version="1.1"
+        id="Capa_1"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+        viewBox="0 0 58 58"
+        xml:space="preserve"
+        fill="#000000"
+      >
+        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+        <g
+          id="SVGRepo_tracerCarrier"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        ></g>
+        <g id="SVGRepo_iconCarrier">
+          <g>
+            <path
+              style="fill: #546a79"
+              d="M29,1.5c-16.016,0-29,11.641-29,26c0,5.292,1.768,10.211,4.796,14.318 C4.398,46.563,3.254,53.246,0,56.5c0,0,9.943-1.395,16.677-5.462c0.007,0.003,0.015,0.006,0.022,0.009 c2.764-1.801,5.532-3.656,6.105-4.126c0.3-0.421,0.879-0.548,1.33-0.277c0.296,0.178,0.483,0.503,0.489,0.848 c0.01,0.622-0.005,0.784-5.585,4.421C22.146,52.933,25.498,53.5,29,53.5c16.016,0,29-11.641,29-26S45.016,1.5,29,1.5z"
+            ></path>
+            <circle style="fill: #ffffff" cx="15" cy="27.5" r="3"></circle>
+            <circle style="fill: #ffffff" cx="29" cy="27.5" r="3"></circle>
+            <circle style="fill: #ffffff" cx="43" cy="27.5" r="3"></circle>
+          </g>
+        </g>
+      </svg>
+    </div>
+    <div id="popChat" class="hidechat popchat">
+      <div class="chatHead"></div>
+      <div class="chatBody">
+        <div class="mess">
+          <span>test1</span>
+        </div>
+
+        <div class="mess">
+          <span>test2</span>
+        </div>
+      </div>
+      <div class="chatFoot">
+        <input value="" type="text" />
+        <i class="btnSend"
+          ><svg
+            height="30px"
+            width="30px"
+            fill="#000000"
+            viewBox="0 0 512 512"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+            <g
+              id="SVGRepo_tracerCarrier"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            ></g>
+            <g id="SVGRepo_iconCarrier">
+              <title>ionicons-v5-q</title>
+              <path
+                d="M476.59,227.05l-.16-.07L49.35,49.84A23.56,23.56,0,0,0,27.14,52,24.65,24.65,0,0,0,16,72.59V185.88a24,24,0,0,0,19.52,23.57l232.93,43.07a4,4,0,0,1,0,7.86L35.53,303.45A24,24,0,0,0,16,327V440.31A23.57,23.57,0,0,0,26.59,460a23.94,23.94,0,0,0,13.22,4,24.55,24.55,0,0,0,9.52-1.93L476.4,285.94l.19-.09a32,32,0,0,0,0-58.8Z"
+              ></path>
+            </g></svg
+        ></i>
+      </div>
+    </div>
   </body>
+
+  <script src="chatbox.js" type="module"></script>
+  <script src="script.js"></script>
 </html>
