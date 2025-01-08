@@ -7,6 +7,8 @@ var objectElement = document.querySelector(".object");
 
 const ytVideo = (youtubeID) => {
   objectElement.innerHTML = `
+  
+  <img loop class="catrun" src="catrun.gif" alt="this slowpoke moves" />
     <param
       class="param"
       name="movie"
@@ -27,6 +29,15 @@ btn.addEventListener("click", () => {
   ytVideo(result);
   //   embedElenment.value = result;
   //   paramElenment.value = result;
+});
+
+const btnChat = document.querySelector(".btnChat");
+
+const popChat = document.getElementById("popChat");
+
+btnChat.addEventListener("click", () => {
+  popChat.classList.toggle("hidechat");
+  console.log("dsffds");
 });
 
 // console.log(paramElenment.value);
