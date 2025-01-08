@@ -3,9 +3,13 @@
   margin: 0;
   box-sizing: border-box;
 }
+*:focus-visible {
+  outline: unset;
+}
 body {
   width: 100vw;
   height: 100vh;
+  overflow: hidden;
 }
 .link {
   width: 400px;
@@ -19,9 +23,6 @@ body {
   transition: all 0.2s;
 }
 
-.link:focus-visible {
-  outline: unset;
-}
 .link:focus,
 .link:active {
   border: 1px solid #4d9ceb;
@@ -43,6 +44,113 @@ body {
 }
 .formLink {
   position: absolute;
-
   bottom: 20px;
+  z-index: 2;
+}
+
+.catrun {
+  width: 110px;
+  position: absolute;
+  bottom: 4px;
+  left: -200px;
+  z-index: 2;
+  animation: catRun 6s infinite linear;
+}
+@keyframes catRun {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(110vw);
+  }
+}
+
+.object {
+  z-index: 0;
+  position: relative;
+}
+
+.btnChat {
+  width: 50px;
+  height: 50px;
+  background-color: #4d9ceb;
+  position: absolute;
+  right: 20px;
+  bottom: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 4;
+  svg {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+  }
+}
+.popchat {
+  position: absolute;
+  width: 250px;
+  height: 300px;
+  right: 20px;
+  bottom: 70px;
+  border-radius: 15px;
+  overflow: hidden;
+  transition: all 0.2s;
+}
+.hidechat {
+  transform: translateX(300px);
+}
+
+.chatHead {
+  width: 100%;
+  height: 40px;
+  background-color: #4d9ceb;
+}
+.chatBody {
+  width: 250px;
+  height: 220px;
+  background-color: #eee;
+  padding: 10px;
+  overflow-y: scroll;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-end;
+  .mess {
+    background-color: #b3c9ff;
+    max-width: 70%;
+    display: block;
+    padding: 4px 6px;
+    border-radius: 10px 10px 0 10px;
+    margin: 2px 0;
+    span {
+      word-break: break-all;
+    }
+  }
+}
+.chatFoot {
+  width: 100%;
+  height: 40px;
+  background-color: #eee;
+  padding: 0 10px;
+  position: relative;
+  input {
+    width: 190px;
+    height: 30px;
+    border: 1px solid #dddddd;
+    background: #f9f9f9;
+    padding: 6px 10px;
+    border-radius: 6px;
+    transition: all 0.2s;
+    position: absolute;
+  }
+  .btnSend {
+    cursor: pointer;
+    position: absolute;
+    right: 10px;
+    svg {
+      fill: #4d9ceb;
+    }
+  }
 }
