@@ -34,6 +34,13 @@ divElement.appendChild(spanElement);
 
 var getLengthMessenger = 0;
 
+textMessenger.addEventListener("keypress", function (event) {
+  if (event.which === 13) {
+    AddText(textMessenger.value);
+    AddMessBoxChat();
+  }
+});
+
 btnSend.addEventListener("click", () => {
   if (textMessenger.value == "") {
     textMessenger.focus();
