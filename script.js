@@ -148,24 +148,70 @@ function AddVideo(urlMessenge) {
     });
   }
 }
-
-function GetVideoList() {
+async function GetVideoList() {
   const dbRef = ref(db);
-  get(child(dbRef, "/videoY")).then((videos) => {
-    videos.forEach((video) => {
-      if (parseInt(video.key) >= videos.val().length - 30) {
-        getVideoTitle(video.val().videoID, API_KEY).then((data) => {
-          const title = data.items[0].snippet.title;
-          const channel = data.items[0].snippet.channelTitle;
-          const src = data.items[0].snippet.thumbnails.medium.url;
-          listVideoBody.appendChild(
-            CreateItemVideo(video.val().videoID, src, title, channel)
-          );
-        });
+
+  try {
+    const snapshot = await get(child(dbRef, "/videoY"));
+    const videosData = snapshot.val();
+    const totalVideos = videosData.length;
+
+    const videoArray = [];
+    snapshot.forEach((videoSnapshot) => {
+      const key = parseInt(videoSnapshot.key);
+      const data = videoSnapshot.val();
+
+      // Lấy 30 video gần nhất
+      if (key >= totalVideos - 30) {
+        videoArray.push({ key, data });
       }
     });
-  });
-  listVideoBody.scrollTop = 999999999;
+
+    // Sắp xếp theo key tăng dần (hoặc đảo ngược nếu muốn ngược lại)
+    videoArray.sort((a, b) => a.key - b.key);
+
+    // Tạo mảng Promise để lấy thông tin video
+    const fetchPromises = videoArray.map(({ key, data }) =>
+      getVideoTitle(data.videoID, API_KEY)
+        .then((response) => {
+          const item = response.items?.[0];
+          if (!item || !item.snippet) {
+            console.warn(
+              `Không tìm thấy thông tin video cho ID: ${data.videoID}`
+            );
+            return null;
+          }
+
+          return {
+            key,
+            videoID: data.videoID,
+            title: item.snippet.title,
+            channel: item.snippet.channelTitle,
+            thumbnail: item.snippet.thumbnails.medium.url,
+          };
+        })
+        .catch((error) => {
+          console.error(`Lỗi với video ${data.videoID}:`, error);
+          return null;
+        })
+    );
+
+    // Chờ tất cả hoàn tất
+    const videoDetails = await Promise.all(fetchPromises);
+
+    // Lọc bỏ các video lỗi (null)
+    const validVideos = videoDetails.filter(Boolean);
+
+    // Render đúng thứ tự
+    validVideos.forEach(({ videoID, thumbnail, title, channel }) => {
+      const videoElement = CreateItemVideo(videoID, thumbnail, title, channel);
+      listVideoBody.appendChild(videoElement);
+    });
+
+    listVideoBody.scrollTop = listVideoBody.scrollHeight;
+  } catch (error) {
+    console.error("Lỗi khi truy cập cơ sở dữ liệu:", error);
+  }
 }
 
 async function getVideoTitle(videoId, apiKey) {
