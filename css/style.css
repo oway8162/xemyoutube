@@ -1,0 +1,226 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+*:focus-visible {
+  outline: unset;
+}
+body {
+  width: 100vw;
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+/* < -------------------SCROLL BODY -------------------- > */
+body::-webkit-scrollbar {
+  width: 0;
+}
+
+.link {
+  width: 400px;
+  height: 30px;
+  margin-left: 30px;
+  margin-top: -20px;
+  border: 1px solid #dddddd;
+  background: #f9f9f9;
+  padding: 6px 10px;
+  border-radius: 6px;
+  transition: all 0.2s;
+}
+
+.link:focus,
+.link:active {
+  border: 1px solid #4d9ceb;
+}
+
+.btnButton {
+  background-color: aquamarine;
+  width: 100px;
+  height: 30px;
+  border-radius: 6px;
+  border: unset;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.btnButton:hover {
+  background-color: aqua;
+}
+.formLink {
+  position: fixed;
+  bottom: 20px;
+  z-index: 2;
+}
+
+.catwalk {
+  width: 110px;
+  position: absolute;
+  bottom: 4px;
+  left: -200px;
+  z-index: 2;
+  animation: catRun 6s infinite linear;
+}
+@keyframes catRun {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(110vw);
+  }
+}
+
+.object {
+  z-index: 0;
+  position: relative;
+}
+
+.btnChat {
+  width: 50px;
+  height: 50px;
+  background-color: #4d9ceb;
+  position: fixed;
+  right: 20px;
+  bottom: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 4;
+  display: fixed;
+  svg {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+  }
+}
+
+.btnListVideo {
+  width: 50px;
+  height: 50px;
+  background-color: #4d9ceb;
+  position: fixed;
+  right: 80px;
+  bottom: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 4;
+  svg {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    fill: rgb(255, 55, 55);
+  }
+}
+
+.popListVideo {
+  position: fixed;
+  width: 350px;
+  height: 500px;
+  left: 20px;
+  top: 20px;
+  border-radius: 15px;
+  overflow: hidden;
+  transition: all 0.2s;
+  z-index: 3;
+}
+
+.hidelistvideo {
+  transform: translateX(-390px);
+}
+
+.listVideoHead {
+  width: 100%;
+  height: 40px;
+  background-color: #4d9ceb;
+}
+.listVideoBody {
+  width: 100%;
+  height: calc(100% - 40px);
+  background-color: #eee;
+  overflow-y: scroll;
+  position: relative;
+  .itemVideo {
+    width: 100%;
+    height: 70px;
+    margin: 2px 0;
+    display: flex;
+    transition: all 0.2s;
+    img {
+      width: 60px;
+      height: 80%;
+      object-fit: cover;
+      margin: 5px 10px;
+    }
+    .snippet {
+      width: calc(100% - 80px);
+      padding: 5px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      font-size: 14px;
+      font-family: "Roboto";
+    }
+    .title {
+      position: relative;
+      font-weight: 800;
+    }
+    .channel {
+      width: calc(100% -70px);
+      margin-top: 5px;
+      font-size: 12px;
+      font-weight: 400;
+    }
+  }
+  .itemVideo:hover {
+    cursor: pointer;
+    background-color: #dfdfdf;
+  }
+}
+
+.mainscroll::-webkit-scrollbar {
+  width: 7px;
+}
+
+/* Handle */
+.mainscroll::-webkit-scrollbar-thumb {
+  background: rgb(255, 72, 72);
+  border-radius: 10px 0 0 10px;
+}
+
+/* Handle on hover */
+.mainscroll::-webkit-scrollbar-thumb:hover {
+  background: rgb(255, 43, 43);
+}
+
+footer {
+  height: 100px;
+}
+
+@media (max-width: 480px) {
+  .formLink,
+  .btnChat,
+  .object,
+  .video-container,
+  .btnListVideo {
+    display: none;
+  }
+  .popchat {
+    width: 100vw;
+    height: 100vh;
+    transform: unset;
+    right: unset;
+    bottom: 0;
+    border-radius: 0;
+  }
+  .chatBody {
+    width: 100%;
+    height: calc(100% - 80px);
+  }
+  .chatFoot {
+    width: 100%;
+    height: 80px;
+  }
+}
