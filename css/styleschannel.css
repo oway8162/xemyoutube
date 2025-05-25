@@ -1,0 +1,90 @@
+.channelVideos {
+  width: 100%;
+  height: 500px;
+  padding: 4rem;
+}
+.channel-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 0;
+  font-family: Arial, sans-serif;
+}
+
+.channel-info img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.channel-detail {
+  display: flex;
+  flex-direction: column;
+}
+
+.channel-name {
+  font-size: 16px;
+  font-weight: 600;
+  color: #0f0f0f;
+}
+
+.subcribes {
+  font-size: 14px;
+  color: #606060;
+}
+
+/* <---------------- CHI TIẾT VIDEOS --------------> */
+.channel-videos {
+  width: 100%;
+}
+.videos-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  row-gap: 10px;
+  column-gap: 15px;
+  justify-items: left;
+  margin: auto;
+  position: relative;
+}
+
+.cn-video-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 8px;
+  font-family: Arial, sans-serif;
+  cursor: pointer;
+}
+
+.cn-video-item:hover {
+  background-color: #cfcfcf;
+}
+
+.cn-video-item img {
+  width: 9em;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+.cn-video-thumbnail {
+  display: flex;
+  flex-direction: column;
+
+  padding: 2px 0;
+}
+
+.cn-video-name {
+  font-size: 15px;
+  font-weight: 600;
+  color: #0f0f0f;
+}
+.cn-video-view {
+  font-size: 14px;
+  color: #606060;
+}
+
+.cn-video-date {
+  font-size: 14px;
+  color: #606060;
+}
